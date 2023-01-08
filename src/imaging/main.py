@@ -25,3 +25,7 @@ def load():
     Load the portal gun
     """
     typer.echo("Loading portal gun")
+
+
+if __name__ == "__main__":
+    app()

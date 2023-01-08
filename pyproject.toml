@@ -13,7 +13,7 @@ python = "^3.8"
 typer = {extras = ["all"], version = "^0.7.0"}
 
 [tool.poetry.scripts]
-imaging = "src.imaging.main:app"
+imaging = "imaging.main:app"
 
 [build-system]
 requires = ["poetry-core"]
