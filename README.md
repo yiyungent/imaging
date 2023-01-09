@@ -6,10 +6,10 @@
 
 [![repo size](https://img.shields.io/github/repo-size/yiyungent/imaging.svg?style=flat)]()
 [![LICENSE](https://img.shields.io/github/license/yiyungent/imaging.svg?style=flat)](https://github.com/yiyungent/imaging/blob/main/LICENSE)
-[![downloads](https://img.shields.io/pypi/dm/pyimaging.svg?style=flat)](https://pypi.org/project/pyimaging/)
+[![downloads](https://img.shields.io/pypi/dm/pyimaging.svg?style=flat)](https://pypi.org/project/pyimaging)
 [![QQ Group](https://img.shields.io/badge/QQ%20Group-894031109-deepgreen)](https://jq.qq.com/?_wv=1027&k=q5R82fYN)
 [![Telegram Group](https://img.shields.io/badge/Telegram-Group-blue)](https://t.me/xx_dev_group)
-
+[![PyPi](https://img.shields.io/pypi/v/pyimaging)](https://pypi.org/project/pyimaging)
 
 ## Introduce
 
