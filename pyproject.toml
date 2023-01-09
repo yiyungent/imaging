@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pyimaging"
-version = "0.1.0"
+version = "0.2.0"
 description = "轻量级 Python 图像处理"
 authors = ["yiyun <yiyungent@gmail.com>"]
 readme = "README.md"
@@ -12,9 +12,16 @@ packages = [{include = "pyimaging", from = "src"}]
 python = "^3.8"
 typer = {extras = ["all"], version = "^0.7.0"}
 pillow = "^9.4.0"
+blind-watermark = "^0.4.2"
 
 [tool.poetry.scripts]
 pyimaging = "pyimaging.main:app"
+
+[[tool.poetry.source]]
+name = "tsinghua"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+default = false
+secondary = false
 
 [build-system]
 requires = ["poetry-core"]

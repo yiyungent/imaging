@@ -1,15 +1,22 @@
 import sys
+import os
+from pathlib import Path
 
 import typer
-import os
+from rich import print
+from blind_watermark import WaterMark
+import blind_watermark
 
 from .marker import add_mark
 from .marker import gen_mark
-from pathlib import Path
+
 
 APP_NAME = "pyimaging"
 
 app = typer.Typer()
+
+# 关闭在 Console 上输出的版权信息
+blind_watermark.bw_notes.close()
 
 
 class ArgsModel(object):
@@ -38,7 +45,7 @@ class ArgsModel(object):
 @app.callback()
 def callback():
     """
-    Awesome Portal Gun
+    Lightweight Image Processing
     """
 
 
@@ -57,6 +64,48 @@ def load():
     """
     typer.echo("Loading portal gun")
 
+@app.command()
+def blind_watermark(imageDir: str = typer.Option(...), mark_text: str = typer.Option(...)):
+    """
+    blind_watermark
+    """
+    typer.echo("blind_watermark...")
+    for root, dirs, files in os.walk(imageDir):
+        for file in files:
+            if file.endswith(('.jpg', '.jpeg', '.png')):
+                image_path = os.path.join(root, file)
+                print("blind_watermark:" + image_path)
+                try:
+                    bwm1 = WaterMark(password_img=1, password_wm=1)
+                    bwm1.read_img(image_path)
+                    bwm1.read_wm(mark_text, mode='str')
+                    bwm1.embed(image_path)
+                    print(image_path + " [green]Success[/green].")
+                    # 解水印需要用到长度
+                    len_wm = len(bwm1.wm_bit)
+                    print("[bold red]Warning:[/bold red] Please save this [green]mark_text_len[/green], the extraction needs to use [green]mark_text_len[/green]: " + str(len_wm))
+                    # len_wm = len(mark_text) # 注意: 不是这个长度
+                except:
+                    print(image_path + " [bold red]Failed[/bold red].")
+
+
+@app.command()
+def extract_blind_watermark(imageDir: str = typer.Option(...), mark_text_len:int = typer.Option(...)):
+    """
+    extract_blind_watermark
+    """
+    typer.echo("extract_blind_watermark...")
+    for root, dirs, files in os.walk(imageDir):
+        for file in files:
+            if file.endswith(('.jpg', '.jpeg', '.png')):
+                image_path = os.path.join(root, file)
+                print("extract_blind_watermark:" + image_path)
+                try:
+                    bwm1 = WaterMark(password_img=1, password_wm=1)
+                    wm_extract = bwm1.extract(image_path, wm_shape=mark_text_len, mode='str')
+                    print(image_path + " [green]mark_text[/green]: " + wm_extract)
+                except:
+                    print(image_path + " [bold red]Failed[/bold red].")
 
 # file=""
 # out = ""

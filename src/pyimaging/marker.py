@@ -12,6 +12,8 @@ import textwrap
 
 from PIL import Image, ImageFont, ImageDraw, ImageEnhance, ImageChops, ImageOps
 
+from rich import print
+
 
 def add_mark(imagePath, mark, args):
     '''
@@ -31,9 +33,9 @@ def add_mark(imagePath, mark, args):
             image = image.convert('RGB')
         image.save(new_name, quality=args.quality)
 
-        print(name + " Success.")
+        print(name + " [green]Success[/green].")
     else:
-        print(name + " Failed.")
+        print(name + " [bold red]Failed[/bold red].")
 
 
 def set_opacity(im, opacity):
