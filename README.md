@@ -25,6 +25,20 @@ pyimaging --help
 ```
 
 
+## Usage
+
+
+### 图片批量加水印
+
+
+```bash
+pyimaging watermark --imagedir "./source/_posts" --mark "yiyun" --space 200 --color "#b7ffab" --opacity 0.3 --size 20 --quality 100
+```
+
+### 其它功能待写文档
+
+
+
 ## Donate
 
 imaging is an Apache-2.0 licensed open source project and completely free to use. However, the amount of effort needed to maintain and develop new features for the project is not sustainable without proper financial backing.

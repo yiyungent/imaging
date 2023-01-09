@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "pyimaging"
 version = "0.1.0"
-description = "轻量级 Python 图像处理库"
+description = "轻量级 Python 图像处理"
 authors = ["yiyun <yiyungent@gmail.com>"]
 readme = "README.md"
 license = "Apache-2.0"
