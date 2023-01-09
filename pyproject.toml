@@ -1,19 +1,20 @@
 [tool.poetry]
 name = "pyimaging"
-version = "0.0.1"
+version = "0.1.0"
 description = "轻量级 Python 图像处理库"
 authors = ["yiyun <yiyungent@gmail.com>"]
 readme = "README.md"
 license = "Apache-2.0"
 repository = "https://github.com/yiyungent/imaging"
-packages = [{include = "imaging", from = "src"}]
+packages = [{include = "pyimaging", from = "src"}]
 
 [tool.poetry.dependencies]
 python = "^3.8"
 typer = {extras = ["all"], version = "^0.7.0"}
+pillow = "^9.4.0"
 
 [tool.poetry.scripts]
-imaging = "imaging.main:app"
+pyimaging = "pyimaging.main:app"
 
 [build-system]
 requires = ["poetry-core"]
